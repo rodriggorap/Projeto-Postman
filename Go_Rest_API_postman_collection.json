@@ -1,0 +1,440 @@
+{
+	"info": {
+		"_postman_id": "f6fc228a-17a0-4a3b-8ba3-ab6daa1cf3f9",
+		"name": "Go Rest API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Criar Usuarios",
+					"item": [
+						{
+							"name": "Test Case - Criar Usuario",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"name_user\")\r",
+											"pm.iterationData.get(\"gender_user\")\r",
+											"pm.iterationData.get(\"email_user\")\r",
+											"pm.iterationData.get(\"status_user\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"{{name_user}}\",\r\n    \"gender\": \"{{gender_user}}\",\r\n    \"email\": \"{{email_user}}\",\r\n    \"status\": \"{{status_user}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}/users",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Excluir Usuarios",
+					"item": [
+						{
+							"name": "Test Case - Deletar Usuario",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/users/{{id_usuario_delete}}",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"users",
+										"{{id_usuario_delete}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Alterar Usuarios",
+					"item": [
+						{
+							"name": "Test Case - Alterar Usuario",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Allasani Peddana\",\r\n    \"email\": \"allasani.pedana@15ce.com\",\r\n    \"status\": \"Active\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}/users/{{id_usuario_update}}",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"users",
+										"{{id_usuario_update}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Buscar Usuarios",
+					"item": [
+						{
+							"name": "Test Case - Buscar Usuario",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/users",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Buscar Posts",
+					"item": [
+						{
+							"name": "Buscar Post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/posts",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Post Especifico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/posts/{{id_post_busca}}",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"posts",
+										"{{id_post_busca}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Excluir Posts",
+					"item": [
+						{
+							"name": "Excluir Post",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/posts/{{id_post_delete}}",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"posts",
+										"{{id_post_delete}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Criar Posts",
+					"item": [
+						{
+							"name": "Criar Post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 4,\r\n    \"user_id\": 4,\r\n    \"title\": \"Ciminatio terreo sed bestia sumo stultus antea earum magnam antepono substantia adiuvo theologus ut sit dens armarium.\",\r\n    \"body\": \"Umquam agnosco solus. Maiores arguo despecto. Vetus suasoria amplitudo. Amo arca conatus. Aqua vitium ventito. Confido depereo tergo. Aperiam alter voluptatibus. Dens cohors sunt. Et clementia comburo. Validus vociferor quo. Earum verumtamen succedo. Vociferor beneficium admoneo. Voluptate solium vigor. Caterva vehemens aer. Ager depromo corrupti. Deorsum titulus consuasor. Umerus vel adfectus.\",\r\n    \"created_at\": \"2021-03-27T03:50:04.147+05:30\",\r\n    \"updated_at\": \"2021-03-27T03:50:04.147+05:30\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}/posts",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Comentarios",
+			"item": [
+				{
+					"name": "Excluir Comentario",
+					"item": [
+						{
+							"name": "Excluir Comentario",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/comments/{{id_comentario_delete}}",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"comments",
+										"{{id_comentario_delete}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Buscar Comentario",
+					"item": [
+						{
+							"name": "Buscar Comentario",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/comments",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Comentario Especifico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/comments/{{id_comentario_busca}}",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"comments",
+										"{{id_comentario_busca}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Criar Comentario",
+					"item": [
+						{
+							"name": "Criar Comentario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 4,\r\n    \"post_id\": 4,\r\n    \"name\": \"Yogendra Kaniyar\",\r\n    \"email\": \"kaniyar_yogendra@schuster.org\",\r\n    \"body\": \"Autem quis explicabo. Deleniti aspernatur esse. Adipisci ad deserunt. Recusandae doloremque molestiae.\",\r\n    \"created_at\": \"2021-03-27T03:50:04.150+05:30\",\r\n    \"updated_at\": \"2021-03-27T03:50:04.150+05:30\"\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}/comments",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "7822e10188577468d7d179eff883d411819bc17aeca18db3f3b2d4e304c3d98a",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.log(pm.info.requestName)"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"",
+					"pm.test(\"Body matches string\", function () {",
+					"    pm.expect(pm.response.text()).to.include(\"Active\");",
+					"});",
+					"pm.test(\"Response time is less than 200seg\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+					"});",
+					"",
+					"if(pm.request.method == 'POST'){",
+					"    pm.test(\"Successful POST request\", function () {",
+					"        pm.expect(pm.response.code).to.be.oneOf([200,201, 202]);",
+					"    });",
+					"}",
+					"",
+					"",
+					"",
+					"",
+					"",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id_comentario_busca",
+			"value": "9"
+		},
+		{
+			"key": "id_comentario_delete",
+			"value": "5"
+		},
+		{
+			"key": "id_post_delete",
+			"value": "10"
+		},
+		{
+			"key": "id_post_busca",
+			"value": "4"
+		},
+		{
+			"key": "id_usuario_update",
+			"value": "4"
+		},
+		{
+			"key": "id_usuario_delete",
+			"value": "2"
+		}
+	]
+}

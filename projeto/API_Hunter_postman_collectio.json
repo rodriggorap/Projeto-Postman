@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "6a3b2206-b5fe-49f6-9270-5e7bef99c30d",
+		"name": "API Hunter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Leads",
+			"item": [
+				{
+					"name": "Criar novo lead",
+					"item": [
+						{
+							"name": "POST - Criar novo Lead",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"email_lead\")\r",
+											"pm.iterationData.get(\"first_name_lead\")\r",
+											"pm.iterationData.get(\"last_name_lead\")\r",
+											"pm.iterationData.get(\"position_lead\")\r",
+											"pm.iterationData.get(\"company_lead\")\r",
+											"pm.iterationData.get(\"company_industry_lead\")\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "/*{\r\n    \"email\": \"{{email_lead}}\",\r\n    \"first_name\": \"{{first_name_lead}}\",\r\n    \"last_name\": \"{{last_name_lead}}\",\r\n    \"position\": \"{{position_lead}}\",\r\n    \"company\": \"{{company_lead}}\",\r\n    \"company_industry\": \"{{company_industry_lead}}\"\r\n}*/\r\n\r\n{\r\n    \"email\": \"rodrigolead@rodrigo.com.br\",\r\n    \"first_name\": \"Rodrigolead\",\r\n    \"last_name\": \"Amarolead\",\r\n    \"position\": \"Socio\",\r\n    \"company\": \"Casa\",\r\n    \"company_industry\": \"TI\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads",
+									"host": [
+										"{{url_base}}leads"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Recuperar todos leads cadastrados",
+					"item": [
+						{
+							"name": "GET - Todos Leads",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads",
+									"host": [
+										"{{url_base}}leads"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET - Buscar Lead Espedifico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads/{{id_lead}}",
+									"host": [
+										"{{url_base}}leads"
+									],
+									"path": [
+										"{{id_lead}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editar lead",
+					"item": [
+						{
+							"name": "PUT - Editar Lead",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"email_lead_edit\")\r",
+											"pm.iterationData.get(\"emaifirst_name_lead_editl_lead\")\r",
+											"pm.iterationData.get(\"last_name_lead_edit\")\r",
+											"pm.iterationData.get(\"position_lead_edit\")\r",
+											"pm.iterationData.get(\"company_lead_edit\")\r",
+											"pm.iterationData.get(\"company_industry_lead_edit\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "/*{\r\n    \"email\": \"{{email_lead_edit}}\",\r\n    \"first_name\": \"{{first_name_lead_edit}}\",\r\n    \"last_name\": \"{{last_name_lead_edit}}\",\r\n    \"position\": \"{{position_lead_edit}}\",\r\n    \"company\": \"{{company_lead_edit}}\",\r\n    \"company_industry\": \"{{company_industry_lead_edit}}\"\r\n}*/\r\n\r\n{\r\n    \"email\": \"rodrigolead1@rodrigo.com.br\",\r\n    \"first_name\": \"Rodrigolead1\",\r\n    \"last_name\": \"Amarolead1\",\r\n    \"position\": \"Socio1\",\r\n    \"company\": \"Casa1\",\r\n    \"company_industry\": \"TI1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads/{{id_lead}}",
+									"host": [
+										"{{url_base}}leads"
+									],
+									"path": [
+										"{{id_lead}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Excluir lead",
+					"item": [
+						{
+							"name": "DELETE - Excluir Lead",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads/{{id_lead}}",
+									"host": [
+										"{{url_base}}leads"
+									],
+									"path": [
+										"{{id_lead}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Leads_Lists",
+			"item": [
+				{
+					"name": "Criar nova lista de lead",
+					"item": [
+						{
+							"name": "POST - Criar novo Lead List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"name_lead_list\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "/*{\r\n    \"name\": \"{{name_lead_list}}\"\r\n}*/\r\n\r\n{\r\n    \"name\": \"Lista Rodrigo2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads_lists",
+									"host": [
+										"{{url_base}}leads_lists"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Recuperar todos leads lists cadastrados",
+					"item": [
+						{
+							"name": "GET - Todos Lead Lists",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads_lists",
+									"host": [
+										"{{url_base}}leads_lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET - Buscar Lead list Especifico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+									"host": [
+										"{{url_base}}leads_lists"
+									],
+									"path": [
+										"{{id_lead_list}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editar lista de lead",
+					"item": [
+						{
+							"name": "PUT - Editar Lead List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.iterationData.get(\"name_lead_list_edit\")"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "/*{\r\n    \"name\": \"{{name_lead_list_edit}}\"\r\n}*/\r\n\r\n{\r\n    \"name\": \"Lista Rodrigo5\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+									"host": [
+										"{{url_base}}leads_lists"
+									],
+									"path": [
+										"{{id_lead_list}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Excluir lista de lead",
+					"item": [
+						{
+							"name": "DELETE - Excluir Lead List",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+									"host": [
+										"{{url_base}}leads_lists"
+									],
+									"path": [
+										"{{id_lead_list}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "0ed1a90c5b8a7c21dd0df6fcc7a677c2f7bc1808",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api_key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"/*Testes para requisições GET",
+					"Status code 200",
+					"String Ok no response code*/",
+					"",
+					"if(pm.request.method == 'GET'){",
+					"",
+					"    pm.test(\"Status code is 200\", function () {",
+					"        pm.response.to.have.status(200);",
+					"    });",
+					"",
+					"    pm.test(\"Status code name has string\", function () {",
+					"        pm.response.to.have.status(\"OK\");",
+					"    });",
+					"}",
+					"",
+					"/*Testes para requisições GET e POST",
+					"Response time < 2000ms*/",
+					"",
+					"if(pm.request.method == 'GET' || pm.request.method == 'POST'){",
+					"",
+					"    pm.test(\"Response time is less than 2000ms\", function () {",
+					"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+					"    });",
+					"",
+					"}",
+					"",
+					"/*Testes para requisições POST",
+					"Status code 200,201,202",
+					"String Created no response code*/",
+					"",
+					"if(pm.request.method == 'POST'){",
+					"",
+					"    pm.test(\"Successful POST request\", function () {",
+					"        pm.expect(pm.response.code).to.be.oneOf([200,201, 202]);",
+					"    });",
+					"",
+					"",
+					"    pm.test(\"Status code name has string\", function () {",
+					"        pm.response.to.have.status(\"Created\");",
+					"    });",
+					"",
+					"    if(pm.info.requestName == 'POST - Criar novo Lead'){",
+					"        pm.environment.set(\"id_lead\",pm.response.json().data.id);",
+					"",
+					"    }",
+					"",
+					"    if(pm.info.requestName == 'POST - Criar novo Lead List'){",
+					"        pm.environment.set(\"id_lead_list\",pm.response.json().data.list_id);",
+					"    }   ",
+					"  ",
+					"}",
+					"",
+					"",
+					"",
+					"/*Testes para requisições DELETE E PUT",
+					"Status code 204",
+					"String Created no response code*/",
+					"",
+					"if(pm.request.method == 'DELETE' || pm.request.method == 'PUT'){",
+					"",
+					"    pm.test(\"Status code name has string\", function () {",
+					"        pm.response.to.have.status(\"No Content\");",
+					"    });",
+					"",
+					"",
+					"    pm.test(\"Status code is 204\", function () {",
+					"        pm.response.to.have.status(204);",
+					"    });",
+					"}",
+					"",
+					""
+				]
+			}
+		}
+	]
+}

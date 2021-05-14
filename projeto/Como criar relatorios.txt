@@ -1,0 +1,10 @@
+Para gerar relatorios com Postman:
+
+1 - Instalar o node.js
+2 - Abrir o cmd e verificar se o node foi instalado -> node -v
+3 - instalar o newman -> no cmd digitar npm install -g newman
+4 - Instalar o reporter html -> npm install -g newman-reporter-html
+5 - Instalar o reporter html -> npm install -g newman-reporter-htmlextra
+6 - Acessar a pasta do projeto, baixar a coleção e o ambiente da execução e executar o comando -> 
+newman run -d dados_csv.csv API_Hunter_postman_collectio.json -e 
+Testes_postman_environment.json --folder Leads -r htmlextra
